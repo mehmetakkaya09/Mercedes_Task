@@ -2,7 +2,7 @@ package com.hepsiBurada.pages;
 
 import com.hepsiBurada.utility.BrowserUtility;
 import com.hepsiBurada.utility.Driver;
-import org.apache.commons.collections.BagUtils;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -16,11 +16,15 @@ public abstract class BasePage {
     @FindBy(css = "#myAccount")
     public WebElement accountButton;
 
-    @FindBy(css = "#login")
-    public WebElement loginButton;
-
-    @FindBy(xpath = "//a[.='Çıkış Yap']")
-    public WebElement logoutButton;
+    /**
+     * navigates to each page in the account list by typing the name of the page and hovering over
+     * @param name
+     */
+    public void clickFromAccountList(String name) {
+        String xpath = "(//div[starts-with(@class,'sf-OldMyAccount-')])[last()]//a[.='" + name + "']";
+        BrowserUtility.hoverOver(accountButton);
+        Driver.getDriver().findElement(By.xpath(xpath)).click();
+    }
 
     @FindBy(xpath = "//span[.='Giriş Yap']")
     public WebElement loginText;
@@ -42,9 +46,6 @@ public abstract class BasePage {
 
     @FindBy(xpath = "//div[@aria-haspopup='listbox']/input")
     public WebElement searchBox;
-
-
-
 
 
 }

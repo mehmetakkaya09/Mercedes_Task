@@ -33,12 +33,15 @@ public class Cart_StepDefs {
         Assert.assertEquals(homepageTitle, Driver.getDriver().getTitle());
     }
 
-    @When("user logs in with valid credentials {string}")
-    public void userLogsInWithValidCredentials(String name) {
-        loginPage.login(ConfigurationReader.getProperty("username"), ConfigurationReader.getProperty("password"));
-        Assert.assertTrue(loginPage.accountName.getText().equals(name));
+    @When("user logs in with valid credentials from {string}")
+    public void userLogsInWithValidCredentials(String login) {
+        loginPage.login(login, ConfigurationReader.getProperty("username"), ConfigurationReader.getProperty("password"));
     }
 
+    @Then("verify account name as {string}")
+    public void verifyAccountNameAs(String name) {
+        Assert.assertTrue(loginPage.accountName.getText().equals(name));
+    }
 
     @When("user deletes old products from the cart")
     public void userDeletesOldProductsFromTheCart() {
@@ -90,16 +93,16 @@ public class Cart_StepDefs {
         Assert.assertEquals(homepageTitle, Driver.getDriver().getTitle());
     }
 
-    @And("user logs out")
-    public void userLogsOut() {
-        BrowserUtility.hoverOver(loginPage.accountButton);
-        loginPage.logoutButton.click();
+    @And("user clicks on {string}")
+    public void userClicksOn(String exit) {
+        loginPage.clickFromAccountList(exit);
     }
 
     @Then("verify that logout is done {string}")
     public void verifyThatLogoutIsDone(String login) {
         Assert.assertTrue(loginPage.loginText.getText().equals(login));
     }
+
 
 
 }
