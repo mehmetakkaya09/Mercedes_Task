@@ -16,7 +16,7 @@ import org.junit.runner.*;
         glue = "com/hepsiBurada/step_definitions",
         tags = "",
         stepNotifications = true,
-        dryRun = true,
+        dryRun = false,
         publish = false
 )
 public class HB_Runner {

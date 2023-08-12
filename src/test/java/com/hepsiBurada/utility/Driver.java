@@ -63,7 +63,11 @@ public class Driver {
                     break;
                 case "chrome":
                     WebDriverManager.chromedriver().setup();
-                    driver = new ChromeDriver();
+                    ChromeOptions options = new ChromeOptions();
+                    options.addArguments("--disable-blink-features");
+                    options.addArguments("--disable-blink-features=AutomationControlled");
+                    options.addArguments("--disable-extensions");
+                    driver = new ChromeDriver(options);
                     driver.manage().window().maximize();
                     driver.manage().timeouts().implicitlyWait(400, TimeUnit.SECONDS);
                     break;
