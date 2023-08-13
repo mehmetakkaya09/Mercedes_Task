@@ -22,6 +22,7 @@ public class ResultPage extends BasePage{
     public void selectItem(int itemNumber) {
         String xpath = "(//div[@class='product-list']//div[@data-test-id=\"product-info-wrapper\"])["+itemNumber+"]";
         WebElement element = Driver.getDriver().findElement(By.xpath(xpath));
+        BrowserUtility.sleep(2);
         BrowserUtility.scrollToElement(element);
         BrowserUtility.sleep(2);
         BrowserUtility.hoverOver(element);

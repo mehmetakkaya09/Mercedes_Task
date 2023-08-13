@@ -43,7 +43,7 @@ public class BrowserUtility {
     }
 
     public static void hoverOver(WebElement element) {
-        action.moveToElement(element).perform();
+        action.moveToElement(element).build().perform();
     }
 
 

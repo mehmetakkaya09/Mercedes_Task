@@ -47,7 +47,7 @@ public class Driver {
                         options.addArguments("--disable-extensions");
                         driver = new RemoteWebDriver(url, desiredCapabilities);
                         driver.manage().window().maximize();
-                        driver.manage().timeouts().implicitlyWait(400, TimeUnit.SECONDS);
+                        driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
@@ -61,7 +61,7 @@ public class Driver {
                         desiredCapabilities.setBrowserName("firefox");
                         driver = new RemoteWebDriver(url, desiredCapabilities);
                         driver.manage().window().maximize();
-                        driver.manage().timeouts().implicitlyWait(400, TimeUnit.SECONDS);
+                        driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
@@ -74,7 +74,7 @@ public class Driver {
                     options.addArguments("--disable-extensions");
                     driver = new ChromeDriver(options);
                     driver.manage().window().maximize();
-                    driver.manage().timeouts().implicitlyWait(400, TimeUnit.SECONDS);
+                    driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
                     break;
                 case "chrome-headless":
                     WebDriverManager.chromedriver().setup();
@@ -84,7 +84,7 @@ public class Driver {
                     WebDriverManager.firefoxdriver().setup();
                     driver = new FirefoxDriver();
                     driver.manage().window().maximize();
-                    driver.manage().timeouts().implicitlyWait(400, TimeUnit.SECONDS);
+                    driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
                     break;
                 case "firefox-headless":
                     WebDriverManager.firefoxdriver().setup();
@@ -98,7 +98,7 @@ public class Driver {
                     WebDriverManager.iedriver().setup();
                     driver = new InternetExplorerDriver();
                     driver.manage().window().maximize();
-                    driver.manage().timeouts().implicitlyWait(400, TimeUnit.SECONDS);
+                    driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
                     break;
 
                 case "edge":
@@ -108,7 +108,7 @@ public class Driver {
                     WebDriverManager.edgedriver().setup();
                     driver = new EdgeDriver();
                     driver.manage().window().maximize();
-                    driver.manage().timeouts().implicitlyWait(400, TimeUnit.SECONDS);
+                    driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
                     break;
 
                 case "safari":
@@ -118,7 +118,7 @@ public class Driver {
                     WebDriverManager.getInstance(SafariDriver.class).setup();
                     driver = new SafariDriver();
                     driver.manage().window().maximize();
-                    driver.manage().timeouts().implicitlyWait(400, TimeUnit.SECONDS);
+                    driver.manage().timeouts().implicitlyWait(40, TimeUnit.SECONDS);
                     break;
             }
         }

@@ -22,6 +22,7 @@ public abstract class BasePage {
      */
     public void clickFromAccountList(String name) {
         String xpath = "(//div[starts-with(@class,'sf-OldMyAccount-')])[last()]//a[.='" + name + "']";
+        BrowserUtility.sleep(2);
         BrowserUtility.hoverOver(accountButton);
         BrowserUtility.sleep(2);
         Driver.getDriver().findElement(By.xpath(xpath)).click();

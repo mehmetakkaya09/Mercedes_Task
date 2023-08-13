@@ -1,6 +1,7 @@
 package com.hepsiBurada.step_definitions;
 
 import io.cucumber.java.After;
+import io.cucumber.java.AfterAll;
 import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
 import com.hepsiBurada.utility.ConfigurationReader;
@@ -19,7 +20,7 @@ public class Hooks {
         Driver.getDriver().get(ConfigurationReader.getProperty("URL"));
     }
 
-    @After()
+    @After
     public void afterScenario(Scenario scenario) {
         if (scenario.isFailed()) {
             try {
@@ -31,8 +32,12 @@ public class Hooks {
                 e.printStackTrace();
             }
         }
+    }
+    @AfterAll
+    public static void tearDown(){
         Driver.closeDriver();
     }
+
 
 
 }
