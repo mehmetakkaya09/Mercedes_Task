@@ -17,6 +17,12 @@ public class UserInfoPage extends BasePage{
     @FindBy(xpath ="//div[(.='Çıkış yap')and(@class='customerAccount-StaticMenuItem-359Tt')]")
     public WebElement logoutButton;
 
+    /**
+     * a fake date of birth is produced
+     * this date is converted to month/day/year format
+     * the / sign is removed and only the digits remain as String
+     * birthday is written in the input
+     */
     public void fakeBirthDate() {
         Faker faker = new Faker();
         Date birthday = faker.date().birthday();

@@ -20,6 +20,7 @@ Feature: Account Update in hepsiburada.com
     When user logs out
     Then verify that logout is done "Giriş Yap"
 
+#Here I was going to do DDT with Scenario Outline but I preferred to use a new birthdate each time from Faker Class
 
 
 

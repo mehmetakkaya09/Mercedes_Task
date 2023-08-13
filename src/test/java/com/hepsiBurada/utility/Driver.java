@@ -8,6 +8,7 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
+import org.openqa.selenium.firefox.FirefoxProfile;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
@@ -40,6 +41,10 @@ public class Driver {
                         URL url = new URL("http://" + gridAddress + ":4444/wd/hub");
                         DesiredCapabilities desiredCapabilities = new DesiredCapabilities();
                         desiredCapabilities.setBrowserName("chrome");
+                        ChromeOptions options = new ChromeOptions();
+                        options.addArguments("--disable-blink-features");
+                        options.addArguments("--disable-blink-features=AutomationControlled");
+                        options.addArguments("--disable-extensions");
                         driver = new RemoteWebDriver(url, desiredCapabilities);
                         driver.manage().window().maximize();
                         driver.manage().timeouts().implicitlyWait(400, TimeUnit.SECONDS);

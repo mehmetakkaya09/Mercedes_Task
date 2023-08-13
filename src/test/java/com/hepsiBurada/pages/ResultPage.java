@@ -14,6 +14,11 @@ public class ResultPage extends BasePage{
     @FindBy(xpath = "(//div[.='Sepete ekle']/..)[last()]")
     public WebElement addToCartButton;
 
+    /**
+     * hover over the item number requested in the parameter
+     * adds to cart when add to cart option is visible
+     * @param itemNumber
+     */
     public void selectItem(int itemNumber) {
         String xpath = "(//div[@class='product-list']//div[@data-test-id=\"product-info-wrapper\"])["+itemNumber+"]";
         WebElement element = Driver.getDriver().findElement(By.xpath(xpath));

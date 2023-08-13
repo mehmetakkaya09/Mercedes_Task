@@ -23,14 +23,19 @@ public class CartPage extends BasePage {
     @FindBy(id = "selectedCheckBox")
     public WebElement selectedCheckBox;
 
+    /**
+     * increments the number of products by one according to the item number
+     * @param itemNumber
+     */
     public void increaseItem(int itemNumber){
         String xpath = "(//a[@aria-label=\"Ürünü Arttır\"])["+itemNumber+"]";
         Driver.getDriver().findElement(By.xpath(xpath)).click();
     }
 
     /**
+     * takes the price of the product as a String and returns it as an Double
      * @param itemNumber
-     * @return price of the selected product
+     * @return Double price of the selected product
      */
     public double productPrice(int itemNumber){
         String xpath = "(//div[starts-with(@class,'pricebox_right_')])["+itemNumber+"]/div/div";
@@ -38,6 +43,11 @@ public class CartPage extends BasePage {
         return Double.parseDouble(price.substring(0,price.indexOf(",")));
     }
 
+    /**
+     * takes the quantity of the product as a String and returns it as an Integer
+     * @param itemNumber
+     * @return Integer quantity of the item
+     */
     public int productQuantity(int itemNumber){
         String xpath = "(//div[starts-with(@class,'product_quantities_')])["+itemNumber+"]//input";
         String quantity = Driver.getDriver().findElement(By.xpath(xpath)).getAttribute("value");

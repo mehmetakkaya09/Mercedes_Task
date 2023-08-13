@@ -15,6 +15,13 @@ public class LoginPage extends BasePage{
     @FindBy(css ="#txtPassword")
     public WebElement password;
 
+    /**
+     * makes hover over user tab
+     * takes the username and password as parameters and logs in
+     * @param login
+     * @param username
+     * @param pass
+     */
     public void login(String login, String username, String pass){
         clickFromAccountList(login);
         userName.sendKeys(username + Keys.ENTER);
