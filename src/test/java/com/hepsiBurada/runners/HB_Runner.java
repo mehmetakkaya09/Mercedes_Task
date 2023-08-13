@@ -14,7 +14,7 @@ import org.junit.runner.*;
         },
         features = "src/test/resources/features",
         glue = "com/hepsiBurada/step_definitions",
-        tags = "@cart",
+        tags = "",
         stepNotifications = true,
         dryRun = false,
         publish = false
