@@ -12,9 +12,7 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
 import org.openqa.selenium.Keys;
-
 public class Cart_StepDefs {
-
     LoginPage loginPage = new LoginPage();
     CartPage cartPage = new CartPage();
     ResultPage resultPage = new ResultPage();

@@ -24,8 +24,10 @@ public abstract class BasePage {
         String xpath = "(//div[starts-with(@class,'sf-OldMyAccount-')])[last()]//a[.='" + name + "']";
         BrowserUtility.sleep(2);
         BrowserUtility.hoverOver(accountButton);
-        BrowserUtility.sleep(2);
-        Driver.getDriver().findElement(By.xpath(xpath)).click();
+        WebElement module = Driver.getDriver().findElement(By.xpath(xpath));
+        BrowserUtility.waitForClickable(module, 10);
+        module.click();
+
     }
 
     @FindBy(xpath = "//span[.='Giriş Yap']")

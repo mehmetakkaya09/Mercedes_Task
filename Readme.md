@@ -11,7 +11,6 @@ This repository contains a Java-based test automation framework developed for te
 - Uses bonigarcia webdrivermanager 5.1.0 for WebDriver management.
 - Implements BDD (Behavior Driven Development) using Cucumber with cucumber-java and cucumber-junit 7.2.3.
 - Generates HTML and Cucumber test reports with reporting-plugin 7.2.0.
-- Integrates log4j and slf4j-simple for effective logging.
 - Utilizes the javafaker library for generating fake data in tests.
 - Implements WebDriver Singleton Design Pattern for efficient browser management. (Driver class was created with Singleton Design Pattern. Grid was created to use remote browsers. Separate WebDriver was created for each of the frequently used browsers. Since there are only two tests, InheritableThreadLocal was not used. Webdriver InheritableThreadLocal can be used for parallel testing if desired.)
 - Supports cross-browser testing with ConfigurationReader and BrowserUtility classes.
